@@ -1,1 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>SmartCondo - Sistema</title>
+<link rel="stylesheet" href="styles.css" /> <!-- Adicione esta linha para linkar o CSS -->
+</head>
+<body>
 
+<div id="login-page" style="display:none;">
+  <h1>SmartCondo</h1>
+  <button id="btnLogin">Entrar</button>
+</div>
+
+<div id="app" style="display:none;">
+  <nav class="sidebar">
+    <div class="logo">
+      <img src="assets/logo_img.png" alt="Logo" />
+      <span>SmartCondo</span>
+    </div>
+    <button id="btnOrders" class="active"><span class="icon">&#128295;</span> Ordem de serviços</button>
+    <button id="btnOccurrence"><span class="icon">&#128221;</span> Ocorrência</button>
+    <button id="btnLogout"><span class="icon">&#10162;</span> Sair</button> <!-- Removido margin-top:auto; para ficar logo abaixo de Ocorrência -->
+  </nav>
+
+  <main class="content">
+    <!-- User info -->
+    <div class="user-info" id="userInfo">
+      <img class="avatar" src="assets/profile.svg" alt="profile" />
+      <div id="userName">João Pereira, Eletricista</div>
+    </div>
+
+    <!-- Ordem de serviços - Tela 1-->
+    <section id="ordersSection">
+      <h1>Ordem de serviços</h1>
+      <table class="os-table">
+        <thead>
+          <tr>
+            <th>O.S:</th>
+            <th>Título</th>
+            <th>Categoria</th>
+            <th>Status</th>
+            <th>Prioridade</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="ordersTableBody">
+          <!-- preenchido via JS -->
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Modal Ordem serviço detalhes -->
+    <div id="modalOSDetails">
+      <div class="modal-content">
+        <h2>Ordem de serviço</h2>
+        <form id="osForm">
+          <label for="osNumber">Número da O.S:</label>
+          <input type="text" id="osNumber" readonly />
+
+          <label for="osPriority">Prioridade</label>
+          <input type="text" id="osPriority" readonly />
+
+          <label for="osTitle">Título:</label>
+          <input type="text" id="osTitle" readonly />
+
+          <label for="osOccurrence">Ocorrência Vinculada (se aplicável):</label>
+          <input type="text" id="osOccurrence" readonly />
+
+          <label for="osDateSuggested">Data sugerida</label>
+          <input type="text" id="osDateSuggested" readonly />
+
+          <label for="osResponsible">Responsável pela execução</label>
+          <input type="text" id="osResponsible" readonly />
+
+          <label for="osLocal">Local:</label>
+          <input type="text" id="osLocal" readonly />
+
+          <label for="osDescription">Descrição</label>
+          <textarea id="osDescription" rows="4" readonly></textarea>
+
+          <div class="btn-group">
+            <button type="button" class="iniciar" id="startOSBtn">Iniciar</button>
+            <button type="button" class="voltar" id="backOSBtn">Voltar</button>
+            <button type="button" class="concluir" id="completeOSBtn">Concluir</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Tela Ocorrência -->
+ <section id="occurrenceSection" style="display:none;">
+  <h1>Ocorrência</h1>
+  <div class="occurrence-container">
+
+    <div class="new-occurrence">
+      <h3>Registrar nova ocorrência</h3>
+      <form id="occurrenceForm">
+        <label for="occTitle">Título</label>
+        <input type="text" id="occTitle" placeholder="Insira um título" required />
+
+        <label for="occCategory">Categoria</label>
+        <select id="occCategory" required>
+          <option value="" disabled selected>Selecione uma categoria</option>
+          <option value="Elétrica">Elétrica</option>
+          <option value="Hidráulica">Hidráulica</option>
+          <option value="Limpeza">Limpeza</option>
+          <option value="Outro">Outro</option>
+        </select>
+
+        <label for="occDescription">Descrição</label>
+        <textarea id="occDescription" placeholder="Descreva problema..." required></textarea>
+
+        <button type="submit" class="submit-occurrence">Enviar ocorrência</button>
+      </form>
+    </div>
+
+    <div class="occurrence-list">
+      <h2>Minhas ocorrências</h2>
+      <div id="occurrenceCardsContainer">
+        <!-- cartões de ocorrências adicionados dinamicamente aqui -->
+      </div>
+    </div>
+
+  </div>
+</section>
+  </main>
+</div>
+
+<script src="script.js"></script> <!-- Adicione esta linha para linkar o JS -->
+</body>
+</html>
