@@ -117,11 +117,24 @@
     </div>
 
     <div class="occurrence-list">
-      <h2>Minhas ocorrências</h2>
-      <div id="occurrenceCardsContainer">
-        <!-- cartões de ocorrências adicionados dinamicamente aqui -->
-      </div>
-    </div>
+      <div>
+  <h2>Minhas ocorrências</h2>
+  <div id="occurrenceCardsContainer" class="occurrence-list">
+    <!-- Os cards serão gerados aqui via JavaScript -->
+  </div>
+</div>
+
+<!-- Modal para mostrar detalhes da ocorrência -->
+<div id="occurrenceDetailModal" class="modal" style="display:none;">
+  <div class="modal-content">
+    <span id="closeModal" class="close">&times;</span>
+    <h2 id="detailTitle">Título da Ocorrência</h2>
+    <p id="detailDate">Data</p>
+    <p id="detailDescription">Descrição detalhada da ocorrência aparecerá aqui.</p>
+    <p><strong>Status: </strong><span id="detailStatus"></span></p>
+  </div>
+</div>
+
 
   </div>
 </section>
@@ -129,5 +142,7 @@
 </div>
 
 <script src="script.js"></script> <!-- Adicione esta linha para linkar o JS -->
+<script src="extensions.js"></script>  <!-- Adicione esta linha -->
+<script src="occurrenceModal.js"></script>
 </body>
 </html>
